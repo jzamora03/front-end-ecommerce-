@@ -1,19 +1,50 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';  // Importar FormsModule
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { CarouselComponent } from './carousel/carousel.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { FiltrosComponent } from './filtros/filtros.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MyProfileComponent } from './my-profile/my-profile.component';
+import { UserService } from './services/user.service';
+import { OrdenComponent } from './orden/orden.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    NavbarComponent,
+    CarouselComponent,
+    ProductListComponent,
+    FiltrosComponent,
+    MyProfileComponent,
+    OrdenComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule, 
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
-    provideClientHydration()
+    provideAnimationsAsync(),
+    UserService
   ],
   bootstrap: [AppComponent]
 })

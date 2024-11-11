@@ -1,0 +1,18 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="form-header">
+      <h2>Iniciar Sesión</h2>
+    </div>
+    <form class="auth-form" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <div class="form-group">
+        <label for="numeroIdentificacion">Número de Identificación</label>
+        <input id="numeroIdentificacion" formControlName="numeroIdentificacion" type="text" placeholder="Ingresa tu número de identificación" />
+      </div>
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input id="password" formControlName="password" type="password" placeholder="Ingresa tu contraseña" />
+      </div>
+      <button type="submit" class="btn-primary">Iniciar sesion</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,162 @@
+.custom-navbar {
+  background-color: #a8e063; 
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999; 
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__container {
+  max-width: 1200px; 
+  margin: 0 auto; 
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.navbar__logo img {
+  height: 50px;
+}
+
+.navbar__menu {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar__menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s;
+  font-size: 1rem;
+}
+
+.navbar__menu a:hover {
+  color: #56ab2f; 
+}
+
+.navbar__search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar__search input {
+  padding: 10px;
+  border: none;
+  border-radius: 50px 0 0 50px;
+  outline: none;
+  width: 300px;
+  border: 1px solid #ddd;
+}
+
+.navbar__search button {
+  background-color: #56ab2f; 
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 0 50px 50px 0;
+  cursor: pointer;
+}
+
+.navbar__icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar__icons a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+  font-size: 1rem;
+}
+
+.navbar__icons a:hover {
+  color: #56ab2f;
+}
+
+.navbar__cart {
+  background-color: #a8e063; 
+  padding: 5px 15px;
+  border-radius: 50px;
+  font-weight: bold;
+  color: #333;
+}
+
+.navbar__account {
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.navbar__dropdown a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+.navbar__dropdown a:hover {
+  background-color: #a8e063; 
+}
+
+/****MODAL*******/
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-dialog {
+  max-width: 500px;
+  width: 100%;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #56ab2f; 
+}

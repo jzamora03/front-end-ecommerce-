@@ -1,0 +1,79 @@
+/* Modal Background */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999; /* Para asegurarse que el modal esté por encima del contenido */
+  }
+  
+  /* Dialogo del Modal */
+  .modal-dialog {
+    background: #fff;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90%;
+    overflow: hidden; /* Previene que se salga del contenido */
+    position: relative;
+  }
+  
+  /* Contenido del Modal */
+  .modal-content {
+    padding: 20px;
+    overflow: auto; /* Activar scroll cuando sea necesario */
+    max-height: 80vh; /* Limitar la altura del contenido para no exceder el viewport */
+  }
+  
+  /* Botón de Cerrar */
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Tabla de Órdenes */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Scroll en la Tabla */
+  .table-container {
+    max-height: 400px; /* Limita la altura de la tabla para permitir el scroll */
+    overflow-y: auto; /* Habilita el scroll si hay muchas órdenes */
+  }
+  
+  /* Colores de Estado */
+  .estado-pendiente {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .estado-en-proceso {
+    color: orange;
+    font-weight: bold;
+  }
+  
+  .estado-realizado {
+    color: green;
+    font-weight: bold;
+  }
+  

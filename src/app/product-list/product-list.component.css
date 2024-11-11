@@ -1,0 +1,179 @@
+/* Ajustes generales para el contenedor del slider y la alineación */
+.product-slider-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+.arrow-container {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.arrow-button {
+  background-color: #56ab2f; /* Verde oscuro */
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+
+.arrow-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.arrow-button:hover {
+  background-color: #3c8e1d; /* Un verde ligeramente más oscuro para el hover */
+}
+
+/* Ajustes del slider de productos */
+.product-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.product-slider::-webkit-scrollbar {
+  display: none; /* Oculta la barra de desplazamiento */
+}
+
+/* Ajuste para las tarjetas de productos */
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 240px; /* Ajuste uniforme para todas las tarjetas */
+  height: 500px; /* Altura consistente para mantener el diseño uniforme */
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Ajuste del contenedor de la imagen para una visualización uniforme */
+.product-image-container {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.product-image {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Detalles del producto */
+.product-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+/* Ajuste para el título y la descripción */
+.product-details h4 {
+  font-size: 18px;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 10px 0;
+}
+
+.product-details p {
+  font-size: 14px;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 10px 0;
+}
+
+.product-price {
+  font-weight: bold;
+  color: #56ab2f; /* Verde oscuro */
+  margin: 10px 0;
+}
+
+/* Ajuste para la sección de cantidad y botones */
+.product-quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.quantity-button {
+  background-color: #56ab2f; /* Verde oscuro */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  border-radius: 4px;
+}
+
+.quantity-input {
+  width: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.quantity-button:hover {
+  background-color: #3c8e1d; 
+}
+
+/* .create-order {
+  background-color: #56ab2f; 
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 15px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.create-order:hover {
+  background-color: #3c8e1d; 
+  transform: translateY(-2px); 
+}
+
+.create-order:active {
+  transform: translateY(0); 
+} */

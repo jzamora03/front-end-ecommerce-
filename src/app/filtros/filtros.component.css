@@ -1,0 +1,36 @@
+.filtros-circulares {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+    overflow-x: auto; /* Para permitir desplazamiento horizontal si hay demasiados filtros */
+  }
+  
+  .filtro-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px; /* Tamaño del círculo */
+    text-align: center;
+  }
+  
+  .filtro-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #0077b6; /* Borde alrededor de los círculos */
+    transition: transform 0.3s;
+  }
+  
+  .filtro-item:hover img {
+    transform: scale(1.1); /* Efecto de zoom cuando se pasa el ratón por encima */
+  }
+  
+  .filtro-item p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+  }
+  

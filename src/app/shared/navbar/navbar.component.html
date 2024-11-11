@@ -1,0 +1,100 @@
+<nav class="navbar custom-navbar">
+  <div class="navbar__container">
+    <div class="navbar__logo">
+      <img src="images/logo.png" alt="E-commerce Logo" />
+    </div>
+
+    <div class="navbar__menu">
+      <a routerLink="/productos">Productos</a>
+      <a routerLink="/ofertas">Ofertas</a>
+      <a routerLink="/servicios">Servicios</a>
+    </div>
+
+    <div class="navbar__search">
+      <input type="text" placeholder="Buscar alimentos, marcas, mascotas..." />
+      <button><i class="fa fa-search"></i></button>
+    </div>
+
+    <div class="navbar__icons">
+      <div class="navbar__account" (click)="toggleDropdown()">
+        <a>
+          {{ isLoggedIn ? 'Usuario Logeado' : 'Mi cuenta' }} <i class="fa fa-chevron-down"></i>
+        </a>
+        <div *ngIf="dropdownOpen" class="navbar__dropdown">
+          <a (click)="abrirOrdenesModal()" *ngIf="isLoggedIn">Mis órdenes</a>
+          <!-- <a routerLink="/my-profile" *ngIf="isLoggedIn">Mi perfil</a> -->
+          <a (click)="abrirPerfilModal()" *ngIf="isLoggedIn">Mi perfil</a>
+          <a (click)="abrirLoginModal()" *ngIf="!isLoggedIn">Login</a>
+          <a (click)="abrirRegistroModal()" *ngIf="!isLoggedIn">Registrarse</a>
+          <a (click)="logout()" *ngIf="isLoggedIn">Cerrar sesión</a>
+        </div>
+      </div>
+        <a *ngIf="isLoggedIn" routerLink="/carrito" class="navbar__cart">
+          <i class="fa fa-shopping-cart"></i> {{ cantidadCarrito }}
+        </a>
+    </div>
+  </div>
+</nav>
+
+<div id="loginModal" class="modal" tabindex="-1" *ngIf="showLoginModal">
+  <div class="modal-dialog">
+    <div class="modal-content auth-card">
+      <app-login (userLoggedIn)="onUserLoggedIn($event)"></app-login>
+      <button (click)="cerrarLoginModal()" class="close-button">&times;</button>
+    </div>
+  </div>
+</div>
+
+<div id="registerModal" class="modal" tabindex="-1" *ngIf="showRegistroModal">
+  <div class="modal-dialog">
+    <div class="modal-content auth-card">
+      <app-register></app-register>
+      <button (click)="cerrarRegistroModal()" class="close-button">&times;</button>
+    </div>
+  </div>
+</div>
+
+<div id="perfilModal" class="modal" tabindex="-1" *ngIf="showPerfilModal">
+  <div class="modal-dialog">
+    <div class="modal-content auth-card">
+      <div class="form-header">
+        <h2>Mi Perfil</h2>
+      </div>
+      <form class="auth-form" #profileForm="ngForm" (ngSubmit)="actualizarPerfil()">
+        <div class="form-group">
+          <label for="nombreCompleto">Nombre Completo</label>
+          <input id="nombreCompleto" name="nombreCompleto" [(ngModel)]="usuario.nombreCompleto" type="text" />
+        </div>
+        <div class="form-group">
+          <label for="cargo">Cargo</label>
+          <input id="cargo" name="cargo" [(ngModel)]="usuario.cargo" type="text" />
+        </div>
+        <div class="form-group">
+          <label for="password">Nueva Contraseña</label>
+          <input id="password" name="password" [(ngModel)]="usuario.password" type="password" placeholder="Dejar vacío si no desea cambiar la contraseña" />
+        </div>
+        <button type="submit" class="btn-primary">Actualizar Perfil</button>
+      </form>
+      <button (click)="cerrarPerfilModal()" class="close-button">&times;</button>
+    </div>
+  </div>
+</div>
+
+<div id="ordenesModal" class="modal" *ngIf="showOrdenesModal">
+  <div class="modal-dialog">
+    <div class="modal-content auth-card">
+      <app-orden [ordenes]="ordenes"></app-orden>
+      <button (click)="cerrarOrdenesModal()" class="close-button">&times;</button>
+    </div>
+  </div>
+</div>
+
+<!-- <div id="perfilModal" class="modal" tabindex="-1" *ngIf="showPerfilModal">
+  <div class="modal-dialog">
+    <div class="modal-content auth-card">
+      <app-my-profile></app-my-profile>
+      <button (click)="cerrarPerfilModal()" class="close-button">&times;</button>
+    </div>
+  </div>
+</div> -->
+

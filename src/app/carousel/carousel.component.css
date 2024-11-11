@@ -1,0 +1,65 @@
+.carousel {
+  margin-top: 100px; /* Aumentar el margen superior para evitar conflicto con el navbar */
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 1; /* Aseguramos que el carrusel esté por detrás del navbar */
+}
+
+  .carousel-inner {
+    max-height: 450px;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 450px;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    text-align: left;
+  }
+  
+  .carousel-caption h5 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .carousel-caption p {
+    font-size: 1.2rem;
+    color: #ffffff;
+  }
+  
+  .carousel-caption .btn {
+    margin-top: 10px;
+    background-color: #ff0000;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .carousel-caption .btn:hover {
+    background-color: #cc0000;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+  }
+  
+  .carousel-indicators [data-bs-target] {
+    background-color: #0077b6;
+  }
+  
+  .carousel-indicators .active {
+    background-color: #ffd100;
+  }
+  
