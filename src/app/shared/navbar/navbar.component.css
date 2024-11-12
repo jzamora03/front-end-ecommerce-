@@ -160,3 +160,14 @@
   cursor: pointer;
   color: #56ab2f; 
 }
+
+.notificacion {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 1000;
+  border-radius: 5px;
+}

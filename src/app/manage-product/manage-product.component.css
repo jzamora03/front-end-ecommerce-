@@ -1,0 +1,184 @@
+/* Modal Background */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Dialogo del Modal */
+.modal-dialog {
+    background: #ffffff;
+    border-radius: 16px;
+    max-width: 800px; /* Aumentar el ancho máximo del modal */
+    width: 100%;
+    max-height: 90%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Contenido del Modal */
+.modal-content {
+    padding: 30px;
+    overflow: auto;
+    max-height: 80vh;
+}
+
+/* Botón de Cerrar */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Header del Modal */
+.form-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+/* Formulario del Modal */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Botón Principal */
+button.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 10px;
+}
+
+button.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Tabla de Productos */
+.product-list-table {
+    margin-top: 25px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.table th {
+    background-color: #f9f9f9;
+    color: #333;
+    font-weight: bold;
+}
+
+.table td {
+    color: #555;
+}
+
+.action-buttons {
+    display: flex;             
+    gap: 10px;                 
+    justify-content: flex-start; 
+}
+
+
+button.btn {
+    padding: 8px 16px;          
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;                
+}
+
+
+button.btn-secondary {
+    background-color: #28a745;
+    color: #fff;
+}
+
+button.btn-secondary:hover {
+    background-color: #218838;
+}
+
+
+button.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+button.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.notificacion {
+    background-color: #4CAF50; /* Verde para éxito */
+    color: white;
+    padding: 15px;
+    position: fixed;
+    top: 150px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 5px;
+  }

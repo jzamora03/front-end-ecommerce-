@@ -17,6 +17,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { UserService } from './services/user.service';
 import { OrdenComponent } from './orden/orden.component';
+import { ManageProductComponent } from './manage-product/manage-product.component';
 
 
 @NgModule({
@@ -30,6 +31,8 @@ import { OrdenComponent } from './orden/orden.component';
     FiltrosComponent,
     MyProfileComponent,
     OrdenComponent,
+    ManageProductComponent,
+
 
   ],
   imports: [

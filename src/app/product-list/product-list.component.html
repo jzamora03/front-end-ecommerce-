@@ -1,30 +1,3 @@
-<!-- <div class="product-slider-container">
-  <div class="arrow-container">
-    <button class="arrow-button" (click)="scrollLeft()">&lt;</button>
-    <button class="arrow-button" (click)="scrollRight()">&gt;</button>
-  </div>
-  
-  <div class="product-slider" #slider>
-    <div *ngFor="let product of products" class="product-card">
-      <div class="product-image-container">
-        <img [src]="product.imagenUrl" alt="{{ product.nombreProducto }}" class="product-image">
-      </div>
-      <div class="product-details">
-        <h4>{{ product.nombreProducto }}</h4>
-        <p>{{ product.descripcion }}</p>
-        <p class="product-price">COP{{ product.precio | number:'1.0-0' }}</p>
-        <div class="product-quantity">
-          <button class="quantity-button" (click)="decreaseQuantity(product)">-</button>
-          <input type="number" [(ngModel)]="product.quantity" min="1" class="quantity-input">
-          <button class="quantity-button" (click)="increaseQuantity(product)">+</button>
-        </div>
-        <button class="add-to-cart" (click)="agregarAlCarrito(product)">Agregar al carrito</button>
-        <button class="create-order" (click)="crearOrden()">Comprar ahora</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <div class="product-slider-container">
   <div class="arrow-container">
     <button class="arrow-button" (click)="scrollLeft()">&lt;</button>
@@ -50,4 +23,5 @@
     </div>
   </div>
 </div>
+
 

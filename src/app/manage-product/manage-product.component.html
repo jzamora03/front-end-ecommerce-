@@ -1,0 +1,74 @@
+<div id="productoModal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content auth-card">
+      <div class="form-header">
+        <h2>Gestionar Productos</h2>
+      </div>
+
+      <div class="mb-3">
+        <button (click)="abrirProductoModal()" class="button-add">Agregar Producto</button>
+      </div>
+
+      <form class="auth-form mb-3" #productoForm="ngForm" (ngSubmit)="guardarProducto()">
+        <input type="hidden" [(ngModel)]="producto.productoId" name="productoId" /> 
+        <div class="form-group">
+          <label for="nombreProducto">Nombre del Producto</label>
+          <input id="nombreProducto" name="nombreProducto" [(ngModel)]="producto.nombreProducto" type="text" required />
+        </div>
+        <div class="form-group">
+          <label for="precio">Precio</label>
+          <input id="precio" name="precio" [(ngModel)]="producto.precio" type="number" required />
+        </div>
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" name="descripcion" [(ngModel)]="producto.descripcion" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="categoria">Categoría</label>
+          <input id="categoria" name="categoria" [(ngModel)]="producto.categoria" type="text" required />
+        </div>
+        <div class="form-group">
+          <label for="imagenUrl">URL de Imagen</label>
+          <input id="imagenUrl" name="imagenUrl" [(ngModel)]="producto.imagenUrl" type="text" />
+        </div>
+        <button type="submit" class="btn-primary">{{ isEditMode ? 'Actualizar' : 'Crear' }}</button>
+      </form>
+
+      <div class="product-list-table mt-3">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Categoría</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+                <td>
+                    <img [src]="product.imagenUrl" alt="{{ product.nombreProducto }}" width="50" height="50" *ngIf="product.imagenUrl">
+                </td>
+                <td>{{ product.nombreProducto }}</td>
+                <td>{{ product.precio | currency: 'COP' }}</td>
+                <td>{{ product.categoria }}</td>
+                <td>
+                    <div class="action-buttons">
+                        <button (click)="abrirEditarProductoModal(product)" class="btn btn-secondary">Editar</button>
+                        <button (click)="eliminarProducto(product.id)" class="btn btn-danger">Eliminar</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+      </div>
+
+      <button (click)="cerrarProductoModal()" class="close-button">&times;</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="mostrarMensaje" class="notificacion">
+  {{ mensaje }}
+</div>

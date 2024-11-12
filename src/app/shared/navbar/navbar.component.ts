@@ -10,22 +10,37 @@ import { OrderService } from '../../services/order.service';
 })
 export class NavbarComponent {
   dropdownOpen = false;
-  isLoggedIn = false;  // Controla si el usuario está autenticado
-  nombrePerfil = '';  
-  showLoginModal = false;  
-  showRegistroModal = false; 
-  showPerfilModal = false;  
-  showOrdenesModal = false;
+  isLoggedIn = false;
   usuario: any = {};
+  nombrePerfil = '';
+  showLoginModal = false;
+  showRegistroModal = false;
+  showPerfilModal = false;
+  showOrdenesModal = false;
+  showProductoModal = false;  // Controla si se muestra el modal de productos
   cantidadCarrito = 0;
   ordenes: any[] = [];
 
-  constructor(private authService: AuthService, private userService: UserService, private orderService: OrderService) {}
+  constructor(
+    private authService: AuthService,
+    private userService: UserService,
+    private orderService: OrderService
+  ) {}
 
   ngOnInit() {
     this.authService.cantidadCarrito$.subscribe((cantidad) => {
       this.cantidadCarrito = cantidad;
     });
+
+    const numeroIdentificacion = this.authService.getNumeroIdentificacion();
+    if (numeroIdentificacion) {
+      // El usuario está autenticado
+      this.isLoggedIn = true;
+      this.nombrePerfil = numeroIdentificacion;
+    } else {
+      // El usuario no está autenticado
+      this.isLoggedIn = false;
+    }
   }
 
   toggleDropdown() {
@@ -48,17 +63,27 @@ export class NavbarComponent {
     this.showRegistroModal = false;
   }
 
+  abrirProductoModal() {
+    console.log('Intentando abrir el modal de productos');
+    this.showProductoModal = true;  // Abre el modal de productos
+  }
+
+  cerrarProductoModal() {
+    console.log('Cerrando el modal de productos');
+    this.showProductoModal = false;  // Cierra el modal de productos
+  }
+
   abrirOrdenesModal() {
     const usuarioIdString = this.authService.getNumeroIdentificacion();
     const usuarioId = parseInt(usuarioIdString!, 10);
-  
+
     if (usuarioId) {
       this.orderService.obtenerOrdenPorUsuario(usuarioId).subscribe(
-        (data) => {
+        (data: any) => {
           this.ordenes = data;
-          this.showOrdenesModal = true; 
+          this.showOrdenesModal = true;
         },
-        (error) => {
+        (error: any) => {
           console.error('Error al obtener las órdenes', error);
         }
       );
@@ -66,7 +91,7 @@ export class NavbarComponent {
       console.error('Número de identificación no disponible');
     }
   }
-  
+
   cerrarOrdenesModal() {
     this.showOrdenesModal = false;
   }
@@ -74,24 +99,17 @@ export class NavbarComponent {
   abrirPerfilModal() {
     const numeroIdentificacion = this.authService.getNumeroIdentificacion();
     if (numeroIdentificacion) {
-
       this.userService.getUserByNumeroIdentificacion(numeroIdentificacion).subscribe(
-        (data) => {
-          this.usuario = data;
-          console.log('Datos de usuario cargados', data);
-          this.showPerfilModal = true; 
+        (data: any) => {
+          this.showPerfilModal = true;
         },
-        (error) => {
+        (error: any) => {
           console.error('Error al obtener los datos del usuario', error);
         }
       );
     } else {
       console.error('Número de identificación no disponible');
     }
-  }
-  
-  cerrarPerfilModal() {
-    this.showPerfilModal = false;
   }
 
   actualizarPerfil() {
@@ -109,23 +127,23 @@ export class NavbarComponent {
     }
   }
 
+  cerrarPerfilModal() {
+    this.showPerfilModal = false;
+  }
+
   logout() {
     this.isLoggedIn = false;
     this.nombrePerfil = '';
-    this.toggleDropdown(); 
+    this.toggleDropdown();
   }
 
   onUserLoggedIn(nombre: string) {
     this.isLoggedIn = true;
     this.nombrePerfil = nombre;
-    this.cerrarLoginModal();  
-    console.log('Número de Identificación desde AuthService:', this.authService.getNumeroIdentificacion());
+    this.cerrarLoginModal();
   }
 
-  // onUserLoggedIn(nombre: string) {
-  //   this.isLoggedIn = true;
-  //   this.nombrePerfil = nombre;
-  //   this.cerrarLoginModal();  
-  // }
-
+  actualizarProductos() {
+    console.log('Lista de productos actualizada desde el componente hijo');
+  }
 }
