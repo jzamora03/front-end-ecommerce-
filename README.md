@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # FrontEndEcommerce
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
@@ -29,4 +28,3 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 =======
 # front-end-ecommerce-
 Front-end ecommerce tps
->>>>>>> 81ec6acc91eb110b9c195b676c7b192cb8e5e7bb
