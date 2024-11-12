@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service'; 
 import { OrderService } from '../../services/order.service';
+import { VisibilityService } from '../../services/visibility.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,11 +21,13 @@ export class NavbarComponent {
   showProductoModal = false;  // Controla si se muestra el modal de productos
   cantidadCarrito = 0;
   ordenes: any[] = [];
+  mostrarReporteProductosActivos: boolean = false;
 
   constructor(
     private authService: AuthService,
     private userService: UserService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private visibilityService: VisibilityService
   ) {}
 
   ngOnInit() {
@@ -145,5 +148,9 @@ export class NavbarComponent {
 
   actualizarProductos() {
     console.log('Lista de productos actualizada desde el componente hijo');
+  }
+
+  toggleReporteProductosActivos() {
+    this.visibilityService.toggleReporte(); // Llama al servicio para alternar la visibilidad del reporte
   }
 }

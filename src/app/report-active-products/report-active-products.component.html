@@ -1,0 +1,31 @@
+<div class="reporte-container">
+    <h2>Reporte de Productos Activos</h2>
+    
+    <div *ngIf="productosActivos.length === 0" class="no-productos">
+      No hay productos activos en este momento.
+    </div>
+  
+    <div *ngIf="productosActivos.length > 0">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Categoría</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of productosActivos">
+            <td>
+              <img [src]="product.imagenUrl" alt="{{ product.nombreProducto }}" width="50" height="50" *ngIf="product.imagenUrl">
+            </td>
+            <td>{{ product.nombreProducto }}</td>
+            <td>{{ product.precio | currency: 'COP' }}</td>
+            <td>{{ product.categoria }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

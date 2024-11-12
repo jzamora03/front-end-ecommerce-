@@ -18,6 +18,8 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { UserService } from './services/user.service';
 import { OrdenComponent } from './orden/orden.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
+import { ReportActiveProductsComponent } from './report-active-products/report-active-products.component';
+import { VisibilityService } from './services/visibility.service';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
     MyProfileComponent,
     OrdenComponent,
     ManageProductComponent,
+    ReportActiveProductsComponent,
 
 
   ],
@@ -47,7 +50,8 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     provideAnimationsAsync(),
-    UserService
+    UserService,
+    VisibilityService
   ],
   bootstrap: [AppComponent]
 })

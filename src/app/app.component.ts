@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
+import { VisibilityService } from './services/visibility.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'front-end-ecommerce';
+  mostrarReporteProductosActivos: boolean = false;
+
+  constructor(private visibilityService: VisibilityService) {
+    this.visibilityService.mostrarReporte$.subscribe(
+      (mostrar) => {
+        this.mostrarReporteProductosActivos = mostrar;
+      }
+    );
+  }
 }

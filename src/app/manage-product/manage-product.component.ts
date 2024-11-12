@@ -90,6 +90,7 @@ export class ManageProductComponent {
     this.productService.obtenerProductos().subscribe(
       (data: any) => {
         this.products = data;
+        console.log(this.products); // Para verificar si el valor de 'producto_activo' está siendo correctamente cargado
       },
       (error) => {
         console.error('Error al cargar los productos:', error);
